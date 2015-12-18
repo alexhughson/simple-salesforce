@@ -153,6 +153,11 @@ If, due to an especially large result, Salesforce adds a ``nextRecordsUrl`` to y
     sf.query_more("01gD0000002HU6KIAW-2000")
     sf.query_more("/services/data/v26.0/query/01gD0000002HU6KIAW-2000", True)
 
+You can also add a queryAll parameter to use the queryAll/ API and get all data, including archived and deleted.  Which should let you query for fields like isDeleted
+
+.. code-block:: python
+    sf.query("SELECT Id, Email, isDeleted FROM Contact WHERE LastName = 'Jones'", queryAll=True)
+
 As a convenience, to retrieve all of the results in a single local method call use
 
 .. code-block:: python
